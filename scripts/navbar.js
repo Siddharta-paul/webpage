@@ -1,5 +1,5 @@
 (function () {
-    const username = localStorage.getItem("username");
+    const username = localStorage.getItem("loggedInUser");
   
     if (!username) {
       window.location.href = "login.html";
