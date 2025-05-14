@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register | Smart Helmet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .register-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-box">
+    <h3 class="text-center mb-4"><i class="fas fa-user-plus"></i> Register</h3>
+    <form id="registerForm">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+          <input type="text" id="fullname" class="form-control" placeholder="Enter your name" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+          <input type="email" id="email" class="form-control" placeholder="Enter email" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          <input type="password" id="password" class="form-control" placeholder="Password" required>
+        </div>
+      </div>
+      <div class="d-grid mb-3">
+        <button type="submit" class="btn btn-success">Register</button>
+      </div>
+      <p class="text-center">Already have an account? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!fullName || !email || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      // Simulate registration
+      localStorage.setItem("loggedInUser", email);
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
